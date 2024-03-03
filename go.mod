@@ -1,4 +1,4 @@
-module github.com/JackD-io/go-model-transformer
+module github.com/JackDPro/go-model-transformer
 
 go 1.22
 

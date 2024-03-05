@@ -1,7 +1,7 @@
 package test
 
 import (
-	"github.com/JackD-io/go-model-transformer/model"
+	"github.com/JackDPro/go-model-transformer/model"
 	"gorm.io/gorm"
 	"time"
 )
@@ -15,6 +15,10 @@ type User struct {
 	DeletedAt gorm.DeletedAt
 }
 
-func (b *User) Fields() []string {
+func (m *User) Fields() []string {
 	return []string{"Id", "Name", "CreatedAt"}
+}
+
+func (m *User) ToMap() (map[string]interface{}, error) {
+	return m.BaseModel.ToMap(m)
 }

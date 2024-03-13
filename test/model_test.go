@@ -10,4 +10,5 @@ func TestToJson(t *testing.T) {
 		Name: "Jack",
 	}
 	t.Log(user.ToMap())
+	t.Log(user.ToJson())
 }

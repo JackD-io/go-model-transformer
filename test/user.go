@@ -22,3 +22,7 @@ func (m *User) Fields() []string {
 func (m *User) ToMap() (map[string]interface{}, error) {
 	return m.BaseModel.ToMap(m)
 }
+
+func (m *User) ToJson() (string, error) {
+	return m.BaseModel.ToJson(m)
+}

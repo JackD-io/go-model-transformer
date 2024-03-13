@@ -1,6 +1,7 @@
 package model
 
 import (
+	"encoding/json"
 	"errors"
 	"gorm.io/gorm"
 	"reflect"
@@ -11,6 +12,18 @@ type BaseModel struct{}
 
 func (b *BaseModel) Fields() []string {
 	return []string{}
+}
+
+func (b *BaseModel) ToJson(model interface{}) (string, error) {
+	modelMap, err := b.ToMap(model)
+	if err != nil {
+		return "", err
+	}
+	dataStr, err := json.Marshal(modelMap)
+	if err != nil {
+		return "", err
+	}
+	return string(dataStr), nil
 }
 
 func (b *BaseModel) ToMap(model interface{}) (map[string]interface{}, error) {
